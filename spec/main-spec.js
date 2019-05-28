@@ -1,20 +1,28 @@
 const main = require('../main/main');
 
-describe('main()', () =>  {
-    it('within 2km and parking' , () => {
-        let summary = main(1,5);
-        expect(summary).toBe(7);
+describe('taxi fee', function () {
+    it('within 2km and parking' , function() {
+        let inputs = {distance:1,parkTime:5};
+        let summary = main(inputs);
+        let expected = 7;
+        expect(summary).toEqual(expected);
     });
-    it('between 2km and 8km and parking' , () =>  {
-        let summary = main(7,10);
-        expect(summary).toBe(13);
+    it('between 2km and 8km and parking' , function() {
+        let inputs = {distance:7,parkTime:10};
+        let summary = main(inputs);
+        let expected = 13;
+        expect(summary).toEqual(expected);
     });
-    it('more than 8km and parking' , () => {
-        let summary = main(10,20);
-        expect(summary).toBe(18);
+    it('more than 8km and parking' , function() {
+        let inputs = {distance:10,parkTime:20};
+        let summary = main(inputs);
+        let expected = 18;
+        expect(summary).toEqual(expected);
     });
-    it('more than 8km and no parking' , () => {
-        let summary = main(15,0);
-        expect(summary).toBe(19);
+    it('more than 8km and no parking' , function() {
+        let inputs = {distance:15,parkTime:0};
+        let summary = main(inputs);
+        let expected = 19;
+        expect(summary).toEqual(expected);
     });
 });
